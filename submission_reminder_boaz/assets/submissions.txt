@@ -1,0 +1,12 @@
+student, assignment, submission status
+Chinemerem, Shell Navigation, not submitted
+Chiagoziem, Git, submitted
+Divine, Shell Navigation, not submitted
+Anissa, Shell Basics, submitted
+Alvin, Shell I/O filter, not submitted
+Shelia, Shell I/O Redirections, submitted
+Kevin, Shell Basics, submitted
+Kelia, Emacs, submitted
+Scovia, Git, not submitted
+Denia, Vim, not submitted
+
