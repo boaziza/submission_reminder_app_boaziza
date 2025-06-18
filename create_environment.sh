@@ -6,6 +6,8 @@ read name
 
 dir=submission_reminder_$name
 
+sed -i "3s|^cd.*|cd "$dir"/|" copilot_shell_script.sh
+
 if [ ! -d $dir ]; then
 
         mkdir $dir
@@ -20,7 +22,7 @@ if [ ! -d app ]; then
 
         mkdir app
 
-        cat <<EOF > app/reminder.sh
+        cat <<'EOF' > app/reminder.sh
 #!/bin/bash
 
 # Source environment variables and helper functions
@@ -46,7 +48,7 @@ if [ ! -d modules ]; then
 
         mkdir modules
 
-        cat <<EOF > modules/functions.sh
+        cat <<'EOF' > modules/functions.sh
 #!/bin/bash
 
 # Function to read submissions file and output students who have not submitted
@@ -78,18 +80,19 @@ if [ ! -d assets ]; then
 
         mkdir assets
 
-        cat <<EOF > assets/submissions.txt
-student, assignment, submission status
-Chinemerem, Shell Navigation, not submitted
-Chiagoziem, Git, submitted
-Divine, Shell Navigation, not submitted
-Anissa, Shell Basics, submitted
-Alvin, Shell I/O filter, not submitted
-Shelia, Shell I/O Redirections, submitted
-Kevin, Shell Basics, submitted
-Kelia, Emacs, submitted
-Scovia, Git, not submitted
-Denia, Vim, not submitted
+        cat <<'EOF' > assets/submissions.txt
+
+student,assignment,status
+Chinemerem,Shell Navigation,not submitted
+Chiagoziem,Git,submitted
+Divine,Shell Navigation,not submitted
+Anissa,Shell Basics,submitted
+Alvin,Shell I/O filter,not submitted
+Shelia,Shell I/O Redirections,submitted
+Kevin,Shell Basics,submitted
+Kelia,Emacs,submitted
+Scovia,Git,not submitted
+Denia,Vim,not submitted
 
 EOF
 
@@ -99,8 +102,7 @@ if [ ! -d config ]; then
 
         mkdir config
 
-        cat <<EOF > config/config.env
-
+        cat <<'EOF' > config/config.env
 # This is the config file
 ASSIGNMENT="Shell Navigation"
 DAYS_REMAINING=2
@@ -110,7 +112,7 @@ EOF
 
 fi
 
-cat <<EOF > startup.sh
+cat <<'EOF' > startup.sh
 #!/bin/bash
 
 source config/config.env
