@@ -1,13 +1,16 @@
 #!/bin/bash
 
+#Prompting the user to enter their name
 echo "Enter your name"
 
 read name
 
 dir=submission_reminder_$name
 
+#Replaces the name of the directory immediately in the copilot_script.sh so it does not corrupt
 sed -i "3s|^cd.*|cd "$dir"/|" copilot_shell_script.sh
 
+#Checking if the directory exist or if it was created
 if [ ! -d $dir ]; then
 
         mkdir $dir
@@ -16,12 +19,16 @@ else
 
 fi
 
+#Changing the directory to the one that just got created
 cd $dir
 
+#Checking if the director app is exists
 if [ ! -d app ]; then
 
+        #Create the app directory when it does not exists
         mkdir app
 
+        #Create the shell file and appending content into it
         cat <<'EOF' > app/reminder.sh
 #!/bin/bash
 
@@ -31,7 +38,6 @@ source ./modules/functions.sh
 
 # Path to the submissions file
 submissions_file="./assets/submissions.txt"
-
 # Print remaining time and run the reminder function
 echo "Assignment: $ASSIGNMENT"
 echo "Days remaining to submit: $DAYS_REMAINING days"
@@ -40,10 +46,12 @@ echo "--------------------------------------------"
 check_submissions $submissions_file
 EOF
 
+#Making the shell script executable
 chmod +x app/reminder.sh
 
 fi
 
+#Checking if the modules already exists
 if [ ! -d modules ]; then
 
         mkdir modules
@@ -71,11 +79,11 @@ function check_submissions {
 }
 
 EOF
-
+#Making the functions shell script executable
 chmod +x modules/functions.sh
 
         fi
-
+#Checking if the assets exists
 if [ ! -d assets ]; then
 
         mkdir assets
@@ -87,17 +95,18 @@ Chinemerem,Shell Navigation,not submitted
 Chiagoziem,Git,submitted
 Divine,Shell Navigation,not submitted
 Anissa,Shell Basics,submitted
-Alvin,Shell I/O filter,not submitted
-Shelia,Shell I/O Redirections,submitted
+Alvin,Shell Navigation,not submitted
+Shelia,Git,submitted
 Kevin,Shell Basics,submitted
-Kelia,Emacs,submitted
+Kelia,Shell Navigation,submitted
 Scovia,Git,not submitted
-Denia,Vim,not submitted
+Denia,Shell Basics,not submitted
 
 EOF
 
 fi
 
+#Checking if the config directory exists
 if [ ! -d config ]; then
 
         mkdir config
@@ -122,4 +131,5 @@ source modules/functions.sh
 
 EOF
 
+#Making the startup shell script executable
 chmod +x startup.sh
