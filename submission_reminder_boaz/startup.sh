@@ -1,7 +1,6 @@
 #!/bin/bash
 
-source config/config.env
-source modules/functions.sh
+echo "Starting up the reminder app..."
 
 ./app/reminder.sh
 

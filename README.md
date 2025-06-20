@@ -1,86 +1,46 @@
-
 # Submission Reminder App
 
-This is a simple shell script project that helps you keep track of which students haven’t submitted a specific assignment. It’s designed to be lightweight and easy to use in a terminal environment.
+This will consist of two shell scripts that when the are run they will
+check who has not submitted and remind them.
 
-## How It Works
+#Shell scripts
 
-After setting up the environment, the app will read from a list of students and check their submission status based on the assignment you specify. If a student hasn’t submitted, the app reminds you.
+-create_environment.sh
+It creates the submission_reminder_name and places each content in its 
+respectful place 
 
-## Project Structure
+By running ./create_environment.sh
 
-Once the setup script runs, it creates the following structure:
+The structure will look like this
 
-```
-submission_reminder_{YourName}/
+submission_reminder_name/
 ├── app/
 │   └── reminder.sh
-├── modules/
-│   └── functions.sh
 ├── assets/
 │   └── submissions.txt
 ├── config/
 │   └── config.env
-└── startup.sh
-```
+├── modules/
+│   └── functions.sh
+├── startup.sh
+Source:Canvas
 
-## Getting Started
 
-1. Run the setup script:
-   ```bash
-   bash create_environment.sh
-   ```
+-copilot_shell_script.sh
 
-   You’ll be asked to enter your name. A folder named `submission_reminder_{YourName}` will be created with all necessary files.
+When run it reminds the user which assignment has not been submitted 
 
-2. Move into that folder:
-   ```bash
-   cd submission_reminder_{YourName}
-   ```
+It also handles error like entering an assignment which is not assignmet,
+when the submission_reminder_name have not been created, and check if the
+files has not been created
 
-3. Start the app:
-   ```bash
-   ./startup.sh
-   ```
 
-## Changing the Assignment
+#Files
 
-To check reminders for a different assignment:
-
-```bash
-bash copilot_shell_script.sh
-```
-
-Then enter the name of the assignment you want to check.
-
-## Example Student Record Format
-
-The `submissions.txt` file looks like this:
-
-```
-student,assignment,status
-Chinemerem,Shell Navigation,not submitted
-Divine,Shell Navigation,not submitted
-Scovia,Git,not submitted
-```
-
-The script uses this file to decide who gets a reminder.
-
-## Git Branches
-
-This project follows a simple Git workflow:
-
-- `feature/setup`: All the initial work and changes happen here.
-- `main`: Final cleaned-up version with only these files:
-  - `create_environment.sh`
-  - `copilot_shell_script.sh`
-  - `README.md`
-
-## Author
-
-Created by Boaz. You can find me on GitHub: [boaz](https://github.com/boaz)
-
-## License
-
-This project is meant for learning and demonstration purposes.
+-config.env: Contains the assignment that is going to be checked
+-submissions.txt: Contains the students name, assignment and submission 
+status
+-reminder.sh: Loads the config.env and call the functions.sh
+-functions.sh: Reads each line in submission file and reminds the user
+of the unsubmitted assignments
 
