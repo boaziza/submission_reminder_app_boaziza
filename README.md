@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-=======
-# Submission Reminder App
+#Submission Reminder App
 
 This will consist of two shell scripts that when the are run they will
 check who has not submitted and remind them.
