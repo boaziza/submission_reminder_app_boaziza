@@ -41,4 +41,6 @@ echo "First run the create_environment.sh"
 exit 1
 fi
 
+
+
 ./startup.sh
