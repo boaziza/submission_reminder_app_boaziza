@@ -7,8 +7,11 @@ read name
 
 dir=submission_reminder_$name
 
+#Replacing the name of the directory for error handling
+sed -i "3s|^if \[ ! -d.*|if [ ! -d \"$dir\" ]; then|" copilot_shell_script.sh
+
 #Replaces the name of the directory immediately in the copilot_script.sh so it does not corrupt
-sed -i "3s|^cd.*|cd "$dir"/|" copilot_shell_script.sh
+sed -i "8s|^cd.*|cd "$dir"/|" copilot_shell_script.sh
 
 #Checking if the directory exist or if it was created
 if [ ! -d $dir ]; then
