@@ -133,5 +133,7 @@ echo "Starting up the reminder app..."
 
 EOF
 
+
+
 #Making the startup shell script executable
 chmod +x startup.sh
